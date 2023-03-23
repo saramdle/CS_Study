@@ -13,3 +13,62 @@
   |que|저장 프로시저와 레디스|
   |서버학생|인덱스|
 
+### 2주차 (4/3 ~ 4/9)
++ 학습범위: Computer Science (Network, Operation System, Software Engineering)
++ 발표범위
+  |닉네임|발표주제|
+  |---|---|
+  |Rosie||
+  |dobby||
+  |우지||
+  |Lilac||
+  |que||
+  |서버학생||
+  
+### 3주차 (4/10 ~ 4/16)
++ 학습범위: Algorithm
++ 발표범위
+  |닉네임|발표주제|
+  |---|---|
+  |Rosie||
+  |dobby||
+  |우지||
+  |Lilac||
+  |que||
+  |서버학생||
+  
+### 4주차 (4/17 ~ 4/23)
++ 학습범위: Design Pattern, Interview
++ 발표범위
+  |닉네임|발표주제|
+  |---|---|
+  |Rosie||
+  |dobby||
+  |우지||
+  |Lilac||
+  |que||
+  |서버학생||
+  
+### 5주차 (4/24 ~ 4/30)
++ 학습범위: Language, Web, Linux
++ 발표범위
+  |닉네임|발표주제|
+  |---|---|
+  |Rosie||
+  |dobby||
+  |우지||
+  |Lilac||
+  |que||
+  |서버학생||
+  
+### 6주차 (5/1 ~ 5/7)
++ 학습범위: New Technology, Seminar, ETC
++ 발표범위
+  |닉네임|발표주제|
+  |---|---|
+  |Rosie||
+  |dobby||
+  |우지||
+  |Lilac||
+  |que||
+  |서버학생||
