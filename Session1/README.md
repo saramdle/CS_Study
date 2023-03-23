@@ -1,5 +1,5 @@
 # Session 1 - 깃헙 CS Interview 자료 활용하기
-> [학습자료](https://github.com/gyoogle/tech-interview-for-developer)
+> [Interview_Question_for_Beginner](https://github.com/gyoogle/tech-interview-for-developer)
 
 </br>
 
