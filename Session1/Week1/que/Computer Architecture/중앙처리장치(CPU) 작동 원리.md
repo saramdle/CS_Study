@@ -54,3 +54,8 @@ CPU(Central Processing Unit)는 산술논리연산장치, 제어장치, 레지�
 ✅ Decode(해석) : 명령어의 해석. 이 단계에서 명령어의 종류와 타겟 등을 판단한다 <br>
 ✅ Execute(실행) : 해석된 명령어에 따라 데이터에 대한 연산을 수행한다 <br>
 ✅ Writeback(쓰기) : 명령어대로 처리 완료된 데이터를 메모리에 기록한다 <br>
+
+
+### Reference
+- - -
+[나무 위키 - CPU](https://namu.wiki/w/CPU)
