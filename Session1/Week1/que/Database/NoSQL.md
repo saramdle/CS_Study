@@ -1,7 +1,5 @@
 # 🎯 SQL vs NoSQL
 - - -
-SQL Injection은 악의적인 사용자가 웹 애플리케이션의 입력 폼 등을 통해 SQL 쿼리문을 조작하여 데이터베이스에 대한 비인가된 접근 및 조작을 시도하는 공격 기법입니다.
-
 <br>
 
 ### **_SQL(Structured Query Language)_**
