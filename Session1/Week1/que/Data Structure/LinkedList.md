@@ -14,8 +14,6 @@ LinkedList는 자료구조의 개념을 이해하기 쉬우며, 추가, 삭제 �
 
 <img width="350" alt="스크린샷 2023-03-26 오후 9 31 46" src="https://user-images.githubusercontent.com/55771326/227775857-40ce018c-dbef-4fd4-8f60-4bd7b80afc2b.png">
 
-
-
 <br>
 
 ### **_LinkedList 장단점_**
