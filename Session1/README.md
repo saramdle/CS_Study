@@ -1,11 +1,13 @@
 # Session 1 - 깃헙 CS Interview 자료 활용하기
+
 > [Interview_Question_for_Beginner](https://github.com/gyoogle/tech-interview-for-developer)
 
 </br>
 
 ### 1주차 (3/27 ~ 4/2)
-+ 학습범위: Computer Science (Computer Architecture, Data Structure, Database)
-+ 발표범위
+
+- 학습범위: Computer Science (Computer Architecture, Data Structure, Database)
+- 발표범위
   |닉네임|발표주제|
   |---|---|
   |Rosie|트랜잭션과 트랜잭션 격리수준|
@@ -14,12 +16,14 @@
   |맥원|sql과 nosql의 차이와 JOIN|
   |que|저장 프로시저와 레디스|
   |서버학생|인덱스|
+  |욱이|SQL Injection, 정규화와 이상현상|
 
 </br>
 
 ### 2주차 (4/3 ~ 4/9)
-+ 학습범위: Computer Science (Network, Operation System, Software Engineering)
-+ 발표범위
+
+- 학습범위: Computer Science (Network, Operation System, Software Engineering)
+- 발표범위
   |닉네임|발표주제|
   |---|---|
   |Rosie||
@@ -28,7 +32,7 @@
   |맥원||
   |que||
   |서버학생||
- 
+
 </br>
  
 ### 3주차 (4/10 ~ 4/16)
@@ -74,8 +78,9 @@
 </br>
 
 ### 6주차 (5/1 ~ 5/7)
-+ 학습범위: New Technology, Seminar, ETC
-+ 발표범위
+
+- 학습범위: New Technology, Seminar, ETC
+- 발표범위
   |닉네임|발표주제|
   |---|---|
   |Rosie||
