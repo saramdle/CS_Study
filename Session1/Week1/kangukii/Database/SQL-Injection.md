@@ -37,14 +37,14 @@ SQL Injection 공격에는 여러가지 공격 기법이 있습니다.
 1️⃣ **Error based SQL Injection**
 
 - 논리적인 에러를 이용한 SQL Injection
-- 말 그대로 에러를 이용한 공격기법으로 고의로 SQL문에 에러를 발생시키는 기법이다.
-- 에러 메세지를 통해 쿼리문의 구성을 추측할 수 있다. 그리고 DB의 테이블명, 컬럼명 및 데이터 내용까지도 알아낼 수 있다.
+- 가장 많이 쓰이고 대중적인 공격 기법입니다.
+- 말 그대로 에러를 이용한 공격기법으로 고의로 SQL문에 에러를 발생시키는 기법입니다.
 
 <img width="100%" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F9958373C5C8890FA03" />
 
 위의 사진을 가지고 간단하게 설명드려보겠습니다. 위의 사진에서 1번 쿼리는 백엔드쪽에서 회원가입 또는 로그인 로직을 구현할 때 주로 사용하게 되는 쿼리입니다. 하지만 여기서 악의적인 사용자가 `OR 1=1 --`이라는 SQL 구문을 주입했습니다. 이로 인해 WHERE에 있는 조건들이 모두 참으로 만들어지고 --를 넣음으로서 뒤의 구문을 모두 주석처리하게 됩니다.
 
-해당 SQL문이 주입되고 나면 3번 쿼리처럼 `SELECT * FROM Users`가 되고, Users 테이블에 있는 모든 정보를 조회할 수 있게 됩니다. 이렇게 되면 가장 만들어진 계정 (보통은 관리자 계정)으로 로그인할 수 있게 됩니다.
+해당 SQL문이 주입되고 나면 3번 쿼리처럼 `SELECT * FROM Users`가 되고, Users 테이블에 있는 모든 정보를 조회할 수 있게 됩니다. 이렇게 되면 가장 먼저 만들어진 계정(관리자 계정)으로 로그인에 성공할 수 있게 됩니다. 보통은 관리자 계정을 맨 처음 만들기 때문에 관리자 계정에 로그인 할 수 있게 되고 또 다른 2차 피해로 연결될 가능성이 커진다.
 
 <br>
 
@@ -57,9 +57,6 @@ SQL Injection 공격에는 여러가지 공격 기법이 있습니다.
 
 <img width="100%" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99BD4C3C5C8890FA0A" />
 
-> 📌 공격 대상: SELECT _ FROM Board WHERE title LIKE '%INPUT%' OR contents '%INPUT%' <br>
-> 📌 공격 예시: SELECT _ FROM Board WHERE title LIKE '% ' UNION SELECT null,id,password FROM Users -- INPUT%' OR contents '%INPUT%'
-
 위의 쿼리문은 Board 라는 테이블에서 게시글을 검색하는 쿼리문입니다. 입력값을 title과 contents 컬럼의 데이터와 비교하고 비슷한 글자가 있는 게시글을 출력합니다. 여기서 입력값으로 UNION 키워드와 함께 컬럼 수를 맞춰서 SELECT 구문을 넣어주게 되면 두 쿼리문이 합쳐져서 하나의 테이블로 보여지게 됩니다.
 
 결과 쿼리는 `SELECT * FROM Board WHERE title LIKE '%' UNION SELECT null, id, password FROM Users --`가 됩니다. **결국 Injection이 성공하게 되면 사용자의 개인정보와 함께 게시글의 정보가 화면에 보여지게 됩니다.**
@@ -71,9 +68,8 @@ SQL Injection 공격에는 여러가지 공격 기법이 있습니다.
 3️⃣ **Blind SQL Injection - Boolean based Injection**
 
 - 사용되는 SQL문: LIMIT, SUBSTR, ASCII 등
-- 특정한 값이나 데이터를 전달받는 것이 아닌 쿼리를 통해 나온 참과 거짓의 정보만을 통해 정보를 취득.
-- 에러가 발생되지 않는 사이트에서는 논리적 에러를 이용하거나 UNION을 이용할 수 없기 때문에 Blind를 통해 정상적인 쿼리가 수행되는지 혹은 쿼리가 수행되지 않아 결과값이 없는지를 판단함.
-- 서버가 응답하는 성공과 실패 여부를 이용해서 DB의 테이블 정보 등을 추출할 수 있다.
+- 단순히 참과 거짓의 정보만 알 수 있을 때 사용한다. 해당 정보만을 통해 정보를 취득한다.
+- 로그인 폼에 SQL Injection이 가능하다고 가정했을 때, 서버가 응답하는 로그인 성공과 로그인 실패 메세지를 이용해서 DB의 테이블 정보 등을 추출할 수 있습니다.
 
 <img width="100%" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99525F3C5C8890F90E" />
 
@@ -86,9 +82,7 @@ SQL Injection 공격에는 여러가지 공격 기법이 있습니다.
 4️⃣ **Blind SQL Injection - Time based Injection**
 
 - 사용되는 SQL문: SLEEP, BENCHMARK 등
-- 쿼리 결과를 특정 시간만큼 지연시키는 것.
-- Blind와 마찬가지로 에러가 발생되지 않는 조건에서 사용하고 참 혹은 거짓이라는 결과값이 나오지 않으므로 시간을 재는 것이다.
-- 궁극적인 목적은 DB 구조를 파악하는 것.
+- 응답의 결과가 항상 동일해서 해당 결과만으로 원하는 값을 판별할 수 없는 경우가 있을 수 있는데 이런 경우는 시간을 지연시키는 쿼리를 Injection해서 응답 시간의 차이로 참과 거짓여부를 판별할 수 있습니다.
 
 <img width="100%" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99CAFB395C88914513" />
 
@@ -102,11 +96,12 @@ SQL Injection 공격에는 여러가지 공격 기법이 있습니다.
 
 1️⃣ **입력 값에 대한 검증**
 
-SQL Injection 에서 사용되는 기법과 키워드는 엄청나게 많습니다. 사용자의 입력 값에 대한 검증이 꼭 필요합니다. 서버 단에서 화이트리스트 기반으로 검증해야 하고, 블랙리스트 기반으로 검증하게 되면 수많은 차단리스트를 등록해야 하고, 하나라도 빠지면 공격에 성공하게 되기 때문입니다. 공백으로 치환하는 방법도 많이 쓰이는데, 이 방법도 취약한 방법입니다. 예를 들어 공격자가 `SESELECTLECT` 라고 입력 시 중간의 SELECT가 공백으로 치환이 되면 SELECT 라는 키워드가 완성되게 되기 때문에 공백 대신 공격 키워드와는 의미 없는 단어로 치환되어야 한다.
+SQL Injection 에서 사용되는 기법과 키워드는 엄청나게 많습니다. 그렇기 때문에 사용자의 입력 값에 대한 검증이 꼭 필요합니다.
 
 2️⃣ **Prepared Statement 구문 사용**
 
 Prepared Statement 구문을 사용하게 되면 사용자의 입력값이 데이터베이스의 파라미터로 들어가기 전에 DBMS가 미리 컴파일해서 실행하지 않고 대기합니다. 그 후 사용자의 입력값을 문자열로 인식하게 해서 공격쿼리가 들어간다고 해도 사용자의 입력은 이미 의미없는 단순 문자열이기 때문에 전체 쿼리문도 공격자의 의도대로 동작하지 않습니다.
+`예시: INSERT INTO 테이블명 VALUES (?, ?, ?)`
 
 [Statement와 PreparedStatement의 차이점](https://iksflow.tistory.com/127)
 
