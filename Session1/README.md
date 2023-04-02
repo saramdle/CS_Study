@@ -27,14 +27,14 @@
 - 발표범위
   |닉네임|발표주제|
   |---|---|
-  |Rosie||
+  |Rosie|페이징 & 세그먼테이션 (PDF), 페이지 교체 알고리즘|
   |dobby||
-  |LEO||
-  |우지||
-  |맥원||
-  |que||
+  |LEO|TDD, 애자일|
+  |우지|HTTP & HTTPS|
+  |맥원|OSI 7 계층|
+  |que|마이크로서비스 아키텍처(MSA)|
   |서버학생||
-  |욱이||
+  |욱이| TCP 3-4way handshake랑 Software Engineering 함수형 프로그래밍|
 
 </br>
  
