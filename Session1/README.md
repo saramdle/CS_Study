@@ -11,7 +11,7 @@
   |닉네임|발표주제|
   |---|---|
   |Rosie|트랜잭션과 트랜잭션 격리수준|
-  |dobby|컴퓨터 구조기초, 컴퓨터의 구성, 중앙처리장치(CPU) 작동원리, 캐시 메모리|
+  |dobby|[컴퓨터 구조기초, 컴퓨터의 구성, 중앙처리장치(CPU) 작동원리, 캐시 메모리](https://brief-soldier-d3b.notion.site/fb8958a04a7c4f75b5fe2908babbea01)|
   |LEO|Array, LinkedList, Array&ArrayList&LinkedList, 스택&큐, 힙, 트리, 이진탐색트리|
   |우지|자료구조 hash|
   |맥원|sql과 nosql의 차이와 JOIN|
@@ -27,14 +27,14 @@
 - 발표범위
   |닉네임|발표주제|
   |---|---|
-  |Rosie||
-  |dobby||
-  |LEO||
-  |우지||
-  |맥원||
-  |que||
+  |Rosie|페이징 & 세그먼테이션 (PDF), 페이지 교체 알고리즘|
+  |dobby|객체지향 프로그래밍|
+  |LEO|TDD, 애자일|
+  |우지|HTTP & HTTPS|
+  |맥원|OSI 7 계층|
+  |que|마이크로서비스 아키텍처(MSA)|
   |서버학생||
-  |욱이||
+  |욱이| TCP 3-4way handshake랑 Software Engineering 함수형 프로그래밍|
 
 </br>
  
