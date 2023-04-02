@@ -47,7 +47,7 @@ SQL 조인 쉽게 이해하기 위한 다이어 그램입니다.
 
 
 ## 3. 내부조인(INNER JOIN)
-
+![Untiled](https://file.notion.so/f/s/a1e84fcc-e135-44ea-8e2c-4ccfc0e191d1/Untitled.png?id=cbb7cbb0-d638-45f4-8104-e6a0cd72f074&table=block&spaceId=3088add6-d1f4-432c-8ae5-86a51f66d543&expirationTimestamp=1680490344631&signature=y32LHABB8w3NA8pX2zHkQX0cBhgjp-hDY6wVZcQ554A&downloadName=Untitled.png)
 - 여러 애플리케이션에서 사용되는 가장 흔한 결합 방식이며 기본 조인 형식으로 간주됩니다.
 - 내부 조인은 조인 구문에 기반한 2개의 (A,B)의 컬럼 값을 결합함으로써 새로운 결과 테이블을 생성합니다.
 - 명시적 조인표현(explicit)과 암시적 조인표현(implict) 2개의 다른 조인식 구문이 있습니다.
@@ -119,7 +119,7 @@ WHERE MEMBER.TYPEID between 1 and 2;
 내부 조인의 경우에는 공통 컬럼명 기반으로 결과 집합을 생성합니다. 반면에 외부 조인은 조건문에 만족하지 않는 행도 표시해주는 조인입니다. 그래서, 조인을 했을 때 한쪽의 테이블에 데이터가 없어도 조인 결과에 포함시키는 조인입니다. 외부 조인은  3가지 종류가 있고 각각에 대해서 예제를 통해서 알아보도록 하겠습니다.
 
 ### 4.1 왼쪽 외부 조인 (LEFT OUTER JOIN)
-
+![LEFT OUTER JOIN](https://file.notion.so/f/s/3b1d75ba-9fb3-406d-a477-94b4037f3a1e/Untitled.png?id=0126930f-e5b6-4bd9-8d47-335cbb6c3b48&table=block&spaceId=3088add6-d1f4-432c-8ae5-86a51f66d543&expirationTimestamp=1680490407468&signature=aQhP92bS4ctJXskr5QZlkt0IAcwWAenXlj1zaf8lCiA&downloadName=Untitled.png)
 왼쪽 외부 조인은 테이블 A의 모든 데이터와 테이블 B와 매칭이 되는 레코드를 포함하는 조인입니다.
 
 ```sql
@@ -129,12 +129,12 @@ FROM EX_TABLE A
 LEFT OUTER JOIN JOIN_TABLE B ON A.NO_EMP = B.NO_EMP
 ```
 
-### 4.2 오른쪽 외부 조인 (RIGHT OUTER JOIN)**
-
+### 4.2 오른쪽 외부 조인 (RIGHT OUTER JOIN)
+![RIGHT OUTER JOIN](https://file.notion.so/f/s/b59da423-6f7e-4224-9e59-db397d90094b/Untitled.png?id=175d9535-69ab-4c70-9765-9e26cfa9dacc&table=block&spaceId=3088add6-d1f4-432c-8ae5-86a51f66d543&expirationTimestamp=1680490455072&signature=8Lcc-51rnOYax1TdweohMoWr5lNNHZCbA2NtUNAFX5E&downloadName=Untitled.png)
 왼쪽 외부 조인은 테이블 B의 모든 데이터와 테이블 A와 매칭이되는 레코드를 포함하는 조인입니다.
 
-### 4.3 완전 외부 조인 (FULL OUTER JOIN)**
-
+### 4.3 완전 외부 조인 (FULL OUTER JOIN)
+![FULL OUTER JOIN](https://file.notion.so/f/s/359cbe09-25dc-4a67-853f-577cee3b64f5/Untitled.png?id=20b638b0-6f67-46d6-978d-e1f64a1c5aa4&table=block&spaceId=3088add6-d1f4-432c-8ae5-86a51f66d543&expirationTimestamp=1680490484121&signature=ZoiEh6CaCBxFha2o9dCZPIcq7LTVfa7vrkK1Q3whFfs&downloadName=Untitled.png)
 완전 외부 조인은 MySQL에서는 명시적인 SQL 구문은 지원하지 않지만, UNION을 사용해서 완전 외부 조인을 할 수 있습니다.
 
 ```sql
