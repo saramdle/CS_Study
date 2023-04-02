@@ -17,7 +17,7 @@
   |맥원|sql과 nosql의 차이와 JOIN|
   |que|저장 프로시저와 레디스|
   |서버학생|인덱스|
-  |욱이|SQL Injection, 정규화와 이상현상|
+  |욱이|[SQL Injection, 정규화와 이상현상](https://github.com/saramdle/CS_Study/tree/main/Session1/Week1/kangukii/Database)|
 
 </br>
 
