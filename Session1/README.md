@@ -11,7 +11,7 @@
   |닉네임|발표주제|
   |---|---|
   |Rosie|트랜잭션과 트랜잭션 격리수준|
-  |dobby|컴퓨터 구조기초, 컴퓨터의 구성, 중앙처리장치(CPU) 작동원리, 캐시 메모리|
+  |dobby|[컴퓨터 구조기초, 컴퓨터의 구성, 중앙처리장치(CPU) 작동원리, 캐시 메모리](https://brief-soldier-d3b.notion.site/fb8958a04a7c4f75b5fe2908babbea01)|
   |LEO|Array, LinkedList, Array&ArrayList&LinkedList, 스택&큐, 힙, 트리, 이진탐색트리|
   |우지|자료구조 hash|
   |맥원|sql과 nosql의 차이와 JOIN|
