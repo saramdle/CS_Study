@@ -43,6 +43,7 @@ SET IMPLICIT_TRANSACTIONS ON    // 3. 암시적(시스템) 트랜잭션
 + 지속성 측면에서 보면, 이전 트랜잭션들의 결과가 그대로 반영되어 있다.
 + 폐기되는 경우 없는 트랜잭션으로 간주하므로 지속성이 깨지지 않는다.
 <br>
+  
 ### [Transaction 관리를 위한 DBMS의 전략](https://d2.naver.com/helloworld/407507)
 ![dbms_structure](./dbms.png)
 + 상부 질의처리기 + 하부 저장시스템(페이지 버퍼)
