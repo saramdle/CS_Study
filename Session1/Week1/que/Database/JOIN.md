@@ -6,12 +6,12 @@
 
 **⭐️ 학생(student) 테이블**
 
-| **id** | **name** | **major** |
-| ------ | -------- | --------- |
-| 1      | Alice    | English   |
-| 2      | Bob      | Math      |
-| 3      | Claire   | Science   |
-| 4      | David    | History   |
+| **id** | **name** | **major**   |
+| ------ | -------- |-------------|
+| 1      | Alice    | English 101 |
+| 2      | Bob      | Math 101    |
+| 3      | Claire   | Science 101 |
+| 4      | David    | History 101 |
 
 **⭐️ 수업(course) 테이블**
 
