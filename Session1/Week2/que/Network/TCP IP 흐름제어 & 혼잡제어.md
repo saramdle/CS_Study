@@ -42,3 +42,8 @@
   * 수신 측은 먼저 도착해야하는 패킷이 도착하지 않고 다음 패킷이 도착한 경우에도 응답(ACK)를 보냅니다. 단, 순서대로 도착한 마지막 패킷의 다음 패킷 순번을 응답 패킷에 실어서 보내기 때문에 송신 측은 순번이 중복된 응답 패킷을 받게되고, 이러한 중복 패킷을 3번 감지하면 문제가 되는 순번의 패킷을 재전송해줄 수 있습니다.
 * **Fast Recovery**
   * 혼잡한 상태가 되면 윈도우의 크기를 1로 줄이지않고 반으로 줄인 다음 선형적으로 증가시키는 기법입니다. 이 기법을 적용하면 혼잡상황을 겪고난 후에는 AIMD와 같은 방식으로 동작합니다.
+
+
+## Reference
+
+https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Network/TCP%20(%ED%9D%90%EB%A6%84%EC%A0%9C%EC%96%B4%ED%98%BC%EC%9E%A1%EC%A0%9C%EC%96%B4).md#tcp-%ED%9D%90%EB%A6%84%EC%A0%9C%EC%96%B4%ED%98%BC%EC%9E%A1%EC%A0%9C%EC%96%B4
