@@ -23,3 +23,6 @@
 
     이러한 차이 때문에 몇 가지 이점이 생깁니다. UDP는 '핸드셰이크'가 필요하지 않거나 데이터가 제대로 도착하는지 확인하지 않기 때문에 TCP보다 훨씬 빠르게 데이터를 전송할 수 있습니다.
 
+## Reference
+
+https://www.cloudflare.com/ko-kr/learning/ddos/glossary/user-datagram-protocol-udp/
