@@ -19,27 +19,36 @@ TCP는 인터넷상에서 데이터를 메세지의 형태로 보내기 위해 I
 
 #### State 정보
 
-- `CLOSED`: 포트가 닫힌 상태
-- `LISTEN`: 포트가 열린 상태로 연결 요청을 대기하는 중
-- `SYN_RECV`: SYNC 요청을 받고 상대방의 응답을 기다리는 중
-- `ESTABLISHED`: 포트 연결 상태
-- `TIME-WAIT`: Server로 부터 FIN을 수신하더라도 일정시간(default는 240초)동안 세션을 남겨놓고 잉여 패킷을 기다리는 과정을 말합니다.
+- `CLOSED`: 닫힌 상태입니다. 즉, 데이터를 주고 받기 전 연결이 안된 기본 상태를 말합니다.
+- `CLOSE-WAIT`: 서버 측에서 클라이언트로 부터 연결을 해제하겠다 신호를 받은 상태이며, 아직 전송이 끝날 때까지 대기하는 상태입니다. 이러한 대기하는 상태는 전송이 끝나지 않은 데이터의 손실을 예방해줍니다.
+- `LISTEN`: 포트가 열린 상태로 연결 요청을 대기하는 중입니다. 즉, CLOSED 상태에 있던 서버가 데이터를 받을 준비가 되어 대기하는 상태를 의미합니다.
+- `SYN_RECEIVED`: 클라이언트 측에서 보낸 SYN을 서버 측에서 잘 받았다는 상태를 의미합니다.
+- `SYN-SENT`: 클라이언트 측에서 SYN을 보냈다는 상태로, 이 말은 다른 말로 서버측의 응답을 기다리고 있는 상태를 의미합니다.
+- `ESTABLISHED`: 연결이 성공적으로 된 상태를 의미합니다. 클라이언트 측에선 서버의 응답을 받으면 해당 상태가 되고, 서버 측에선 응답을 보내고 다시 클라이언트 측에서 데이터를 보내면 해당 상태가 됩니다.
+- `FIN-WAIT`: 클라이언트 측에서 서버에 연결을 해제하겠다고 신호를 보낸 상태를 의미합니다.
+- `TIME-WAIT`: Server로 부터 FIN을 수신하더라도 일정시간동안 세션을 남겨놓고 잉여 패킷을 기다리는 과정을 말합니다.
+- `LAST-ACK`: 서버 측에서 전송이 끝나고 클라이언트 측으로 전송이 완전히 끝났다는 신호를 보낸 상태입니다
 
 #### Flag 정보
 
-- TCP Header에는 CONTROL BIT(플래그 비트, 6bit)가 존재하고, 각 bit는 'URG-ACK-PSH-RST-SYN-FIN'의 의미를 가집니다.
+- **TCP Header에는 CONTROL BIT(플래그 비트, 6bit)가 존재하고, 각 bit는 'URG-ACK-PSH-RST-SYN-FIN'의 의미를 가집니다.**
+
   - 즉, 해당 위치의 bit가 1이면 해당 패킷이 어떤 내용을 담고있는 패킷인지 나타냅니다.
-- SYN (Synchronize Sequence Number)
+
+- **SYN (Synchronize Sequence Number)**
+
   - 연결 설정. Sequence Number를 랜덤으로 설정하여 세션을 연결하는데 사용하고 초기에 Sequence Number를 전송합니다.
-  - Connection을 생성할 때 사용하는 Flag.
-- ACK (Acknowledgement)
+  - Connection을 위한 Flag.
+  - **다시 말해서, 3-Way Handshake에서 연결을 위해 특정 숫자를 보낸다고 말씀드렸는데 여기서 특정 숫자를 `Sequence Number(SYN)`이라고 합니다.**
+
+- **ACK (Acknowledgement)**
 
   - 응답 확인. 패킷을 받았다는 것을 의미하는 Flag.
-  - Acknowledgement Number 필드가 유효한지를 나타냅니다.
-  - 양단 프로세스가 쉬지 않고 데이터를 전송한다고 가정하면 최초 연결 설정 과정에서 전송되는 첫 번째 세그먼트를 제외한 모든 세그먼트의 ACK 비트는 1로 지정된다고 생각할 수 있습니다.
+  - ACK도 특정 숫자로 이루어져 있는데 보통 SYN이 보낸 숫자에 +1을 한 값입니다.
 
-- FIN (Finish)
-  - 연결 해제. 세션 연결을 종료시킬 때 사용되고 더 이상 전송할 데이터가 없음을 의미합니다.
+- **FIN (Finish)**
+
+  - 연결을 종료시킬 때 사용됩니다.
   - 4-Way Handshake에서 사용됩니다.
 
 <br>
@@ -54,20 +63,21 @@ TCP는 인터넷상에서 데이터를 메세지의 형태로 보내기 위해 I
 
 #### 3-Way Handshake 동작 방식
 
-**1️⃣ Client -> SYN -> Server**
+**1️⃣ Client -> SYN -> Server (전화 들려?)**
 
 Client가 Server에게 접속을 요청하는 `SYN(X)`을 보냅니다. 송신자가 최초로 데이터를 전송할 때 Sequence Number를 난수(X)로 지정하고 SYN 플래그 비트를 1로 설정한 세그먼트를 전송합니다.<br>
 
-Client는 CLOSED에서 `SYN-SENT`로 상태가 변경되고 Server는 `LISTEN`상태가 됩니다.
+**Client는 CLOSED에서 `SYN-SENT`로 상태변경이 됩니다.**
 
-**2️⃣ Server -> SYN + ACK -> Client**
+**2️⃣ Server -> SYN + ACK -> Client (응 들리는디 너는?)**
 
-Server는 LISTEN 상태에서 `SYN(X)`이 들어온 것을 확인하고 `SYN_RECEIVED` 상태로 바뀌어 받았다는 신호인 ACK과 SYN을 합친 `SYN(Y)+ACK(X+1)` 플래그를 Client에게 전송합니다.
+Server는 `LISTEN` 상태에서 클라이언트로부터 `SYN(X)`이 들어온 것을 확인하고 요청을 수락한다는 `ACK과 SYN Flag(SYN(Y) + ACK(X+1))`가 설정된 패킷을 발송하고 클라이언트로부터 ACK이 오길 기다립니다. 이 때 Server는 `SYN_RECEIVED` 상태로 바뀌게 됩니다.
 
-**3️⃣ Client -> ACK -> Server**
+**3️⃣ Client -> ACK -> Server (나도 들려! 이제 말할게)**
 
-Client에서는 서버로부터 `SYN(Y)+ACK(X+1)` 패킷을 받고, 서버로 `ACK(Y+1)`을 보내게 됩니다.
-이 때 Client는 `ESTABLISHED` 상태가 되고 Server도 마찬가지로 `SYN_RECEIVED`에서 `ESTABLISHED` 상태가 됩니다.
+Client에서는 Server로부터 `SYN(Y)+ACK(X+1)` 패킷을 받고 `ESTABLISHED` 상태가 됩니다. 그리고 Server로 `ACK(Y+1)`을 보내게 됩니다.
+
+Server는 Client로부터 `ACK(Y+1)`을 받게 되고 마찬가지로 `ESTABLISHED` 상태가 되고 Client와 Server간의 연결이 이루어지게 됩니다.
 
 <br>
 
@@ -83,31 +93,37 @@ Client에서는 서버로부터 `SYN(Y)+ACK(X+1)` 패킷을 받고, 서버로 `A
 
 #### 4-Way Handshake 동작 방식
 
-**1️⃣ Client -> FIN -> Server**
+**1️⃣ Client -> FIN -> Server (나 이제 전화 끊고싶어!)**
 
-서버와 클라이언트가 연결된 상태에서 클라이언트가 연결을 종료하겠다는 `FIN 플래그`를 서버에 전송합니다. 보낸후에 State를 `FIN-WAIT-1` 상태로 변환합니다.
+Server와 Client가 연결된 상태에서 Client가 연결을 종료하겠다는 `FIN 플래그`를 Server에 전송합니다. 보낸후에 State를 `FIN-WAIT-1` 상태로 변환합니다.
 
-추가적으로 FIN 패킷에는 실질적으로 ACK이 포함되어 있다고 합니다. 이는 `Half-Close` 기법때문이라고 합니다.
+참고로 이 1번 과정에서 FIN 패킷에는 실질적으로 ACK이 포함되어 있다고 합니다. 이는 `Half-Close` 기법때문이라고 합니다.
 
 > - 연결을 종료하려고 할 때 완전히 종료하지 않고 반만 종료합니다.<br>
 > - Half-close 기법을 사용하게 되면 종료 요청자가 처음 보내는 FIN 패킷에 승인 번호를 함께 담아서 보내게 되는데 이 때 승인 번호의 의미는 "일단 연결은 종료할건데 귀는 열어둘게. 이 승인 번호까지 처리했으니까 더 보낼 거 있으면 보내!"가 됩니다.
-> - 이후 수신자가 남은 데이터를 모두 보내고 나면 다시 요청자에게 FIN 패킷을 보냄으로써 모든 데이터가 처리되었다는 신호인 FIN을 보내게 됩니다. 그렇게 되면 요청자는 나머지 반을 닫으면서 좀 더 안전하게 연결을 종료할 수 있게 됩니다.
+> - 이후 수신자가 남은 데이터를 모두 보내고 나면 다시 요청자에게 FIN 패킷을 보냄으로써 모든 데이터가 처리되었다는 신호인 FIN을 보내게 됩니다. 여기서 FIN은 그림에서 서버가 보내는 FIN을 의미합니다. 그렇게 되면 요청자는 나머지 반을 닫으면서 좀 더 안전하게 연결을 종료할 수 있게 됩니다.
 
-**2️⃣ Server -> ACK -> Client**
+**2️⃣ Server -> ACK -> Client (오키! 그러면 나 이거까지만 말하고 끊을게)**
 
-FIN 플래그를 받은 Server는 확인메세지인 `ACK`을 Client에 보내고 자신의 통신이 끝날때까지 기다리게 됩니다. 이 상태가 `CLOSE-WAIT`입니다. Client도 마찬가지로 Server에서 종료될 준비가 됐다는 FIN을 받기 위해 `FIN-WAIT-2` 상태로 변환합니다.
+`FIN 플래그`를 받은 Server는 확인메세지인 `ACK`을 Client에 보내고 자신(Server)의 통신이 끝날때까지 기다리게 됩니다. 이 상태가 `CLOSE-WAIT`입니다. Client도 마찬가지로 Server에서 종료될 준비가 됐다는 `FIN`을 받기 위해 `FIN-WAIT-2` 상태로 변환합니다.
 
-**3️⃣ Server -> FIN -> Client**
+**3️⃣ Server -> FIN -> Client (이제 다 말했어! 끊자~)**
 
-Close 준비가 끝난 Server는 Client에게 `FIN 플래그`를 전송한다. 이후 승인번호를 보내줄 때까지 기다리는 `LAST-ACK` 상태로 들어가게 됩니다.
+Server에서 작업이 모두 끝나고 Client에게 `FIN`을 전송합니다.
 
-**4️⃣ Client -> ACK -> Server**
+**4️⃣ Client -> ACK -> Server (오키 알았어~)**
 
-Client는 FIN을 받고 해지 준비가 되었다는 정상응답인 ACK을 Server에게 보내준다. 이 때 Client는 `TIME-WAIT` 상태로 변경된다. 여기서 TIME-WAIT 상태는 `의도치 않은 에러로 인해 연결이 데드락으로 빠지는 것을 방지`하기 위해 변경되는 것인데 만약 에러로 인해 종료가 지연되다가 타임이 초과되면 CLOSED 상태로 변경된다.
+Client는 `FIN`을 받고 해지 준비가 되었다는 정상응답인 `ACK`을 Server에게 보내준다. 이 때 Client는 `TIME-WAIT` 상태로 변경된다. 여기서 TIME-WAIT 상태는 `의도치 않은 에러로 인해 연결이 데드락으로 빠지는 것을 방지`하기 위해 변경되는 것인데 만약 에러로 인해 종료가 지연되다가 타임이 초과되면 CLOSED 상태로 변경됩니다.
+
+예를 들어보겠습니다. 만약 Server에서 FIN을 전송하기 전에 전송한 패킷이 Routing 지연이나 패킷 유실로 인한 재전송 등으로 인해 FIN보다 늦게 도착하는 상황이 발생한다면 어떻게 될까요?
+
+Client에서는 연결을 종료시킨 후 뒤늦게 도착하는 패킷이 있다면 이 패킷은 Drop되고 데이터는 유실될 것입니다.
+
+이러한 현상에 대비하여 Client는 Server로부터 FIN을 수신하더라도 일정시간(Default는 240초) 동안 연결을 남겨놓고 잉여 패킷을 기다리는 과정을 거치게 되는데 이 과정을 `TIME_WAIT` 라고 합니다.
 
 <br>
 
-이후 서버는 ACK을 받고 CLOSED 상태로 들어가서 소켓을 닫게 되고, TIME-WAIT 시간이 끝나면 클라이언트도 CLOSED 상태가 됩니다.
+`이후 서버는 ACK을 받고 CLOSED 상태로 들어가서 소켓을 닫게 되고, TIME-WAIT 시간이 끝나면 클라이언트도 CLOSED 상태가 됩니다.`
 
 <br>
 
