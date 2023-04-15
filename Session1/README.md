@@ -32,7 +32,7 @@
   |우지|HTTP & HTTPS|
   |맥원|OSI 7 계층|
   |que|마이크로서비스 아키텍처(MSA)|
-  |욱이| TCP 3-4way handshake랑 Software Engineering 함수형 프로그래밍|
+  |욱이| [TCP 3-4way handshake랑 Software Engineering 함수형 프로그래밍](https://github.com/saramdle/CS_Study/tree/main/Session1/Week2/kangukii)|
 
 </br>
  
