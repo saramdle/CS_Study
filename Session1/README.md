@@ -37,7 +37,7 @@
 </br>
  
 ### 3주차 (4/10 ~ 4/16)
-+ 학습범위: Algorithm
++ 학습범위: Algorithm + Computer Science 복습
 + 발표범위
   |닉네임|발표주제|
   |---|---|
