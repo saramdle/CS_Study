@@ -52,22 +52,22 @@
 </br>
  
 ### 4주차 (4/17 ~ 4/23)
-+ 학습범위: Design Pattern, Interview
++ 학습범위: Design Pattern + 지난 내용 복습
 + 발표범위
   |닉네임|발표주제|
   |---|---|
-  |Rosie||
-  |dobby||
-  |LEO||
-  |우지||
-  |맥원||
-  |que||
-  |욱이||
+  |Rosie|디자인 패턴 개요 + 아키텍처|
+  |dobby|어댑터 패턴|
+  |LEO|옵저버 패턴|
+  |우지|XSS 공격|
+  |맥원|팩토리 메서드 패턴|
+  |que|전략 패턴|
+  |욱이|싱글톤 패턴|
  
 </br>
  
 ### 5주차 (4/24 ~ 4/30)
-+ 학습범위: Language, Web, Linux
++ 학습범위: Interview, Language, Web, Linux
 + 발표범위
   |닉네임|발표주제|
   |---|---|
