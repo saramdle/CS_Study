@@ -47,7 +47,7 @@
   |우지|다익스트라|
   |맥원|동적계획법|
   |que|DFS&BFS|
-  |욱이|힙 정렬과 머지 정렬|
+  |욱이|[힙 정렬과 머지 정렬](https://github.com/saramdle/CS_Study/tree/main/Session1/Week3/kangukii/Algorithm)|
  
 </br>
  
