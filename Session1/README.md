@@ -67,7 +67,7 @@
 </br>
  
 ### 5주차 (4/24 ~ 4/30)
-+ 학습범위: Interview, Language, Web, Linux
++ 학습범위: Interview, Language + 지난 내용 복습
 + 발표범위
   |닉네임|발표주제|
   |---|---|
