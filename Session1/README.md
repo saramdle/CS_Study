@@ -71,11 +71,11 @@
 + 발표범위
   |닉네임|발표주제|
   |---|---|
-  |Rosie||
+  |Rosie|Dispatcher-Servlet|
   |dobby||
-  |LEO||
-  |우지||
-  |맥원||
+  |LEO|Call by Value vs Call by Reference|
+  |우지|CORS|
+  |맥원|메모리, 성능을 개선하기 위해 생각나는 방법은?|
   |que||
   |욱이||
   
