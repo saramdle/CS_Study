@@ -67,16 +67,16 @@
 </br>
  
 ### 5주차 (4/24 ~ 4/30)
-+ 학습범위: Interview, Language, Web, Linux
++ 학습범위: Interview, Language + 지난 내용 복습
 + 발표범위
   |닉네임|발표주제|
   |---|---|
-  |Rosie||
+  |Rosie|Dispatcher-Servlet|
   |dobby||
   |LEO||
-  |우지||
-  |맥원||
-  |que||
+  |우지|CORS|
+  |맥원|메모리, 성능을 개선하기 위해 생각나는 방법은?|
+  |que|Call by Value vs Call by Reference|
   |욱이||
   
 </br>
