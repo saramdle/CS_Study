@@ -72,7 +72,7 @@
   |닉네임|발표주제|
   |---|---|
   |Rosie|Dispatcher-Servlet|
-  |dobby||
+  |dobby|ECMAScript 2023|
   |LEO||
   |우지|CORS|
   |맥원|메모리, 성능을 개선하기 위해 생각나는 방법은?|
