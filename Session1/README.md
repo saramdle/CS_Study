@@ -47,7 +47,7 @@
   |우지|다익스트라|
   |맥원|동적계획법|
   |que|DFS&BFS|
-  |욱이|힙 정렬과 머지 정렬|
+  |욱이|[힙 정렬과 머지 정렬](https://github.com/saramdle/CS_Study/tree/main/Session1/Week3/kangukii/Algorithm)|
  
 </br>
  
@@ -72,12 +72,12 @@
   |닉네임|발표주제|
   |---|---|
   |Rosie|Dispatcher-Servlet|
-  |dobby||
+  |dobby|ECMAScript 2023|
   |LEO||
   |우지|CORS|
   |맥원|메모리, 성능을 개선하기 위해 생각나는 방법은?|
   |que|Call by Value vs Call by Reference|
-  |욱이||
+  |욱이|JavaScript Closure|
   
 </br>
 
