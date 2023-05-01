@@ -83,14 +83,14 @@
 
 ### 6주차 (5/1 ~ 5/7)
 
-- 학습범위: New Technology, Seminar, ETC
+- 학습범위: Web + 지난 내용 복습
 - 발표범위
   |닉네임|발표주제|
   |---|---|
-  |Rosie||
-  |dobby||
-  |LEO||
-  |우지||
-  |맥원||
-  |que||
-  |욱이||
+  |Rosie|OAuth|
+  |dobby| CSR&SSR|
+  |LEO|Vue와 React의 차이|
+  |우지|쿠키 세션 JWT|
+  |맥원|HTTP Status Code|
+  |que|JWT(JSON Web Token), Authentication and Authorization|
+  |욱이|웹서버와 WAS의 차이점|
