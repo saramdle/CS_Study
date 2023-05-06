@@ -87,7 +87,7 @@
 - 발표범위
   |닉네임|발표주제|
   |---|---|
-  |Rosie|OAuth|
+  |Rosie|[OAuth](https://ilpyo-yang.github.io/cs/2022/05/02/Web.html#oauth)|
   |dobby| CSR&SSR|
   |LEO|Vue와 React의 차이|
   |우지|쿠키 세션 JWT|
