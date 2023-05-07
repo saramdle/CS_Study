@@ -2,7 +2,7 @@
 
 ### Session 1 - 깃헙 CS Interview 자료 활용하기
 > [Interview_Question_for_Beginner](https://github.com/gyoogle/tech-interview-for-developer)
-+ 학습기간: 3/27 ~
++ 학습기간: 3/27 ~ 5/7
 + 매주 일요일 오전 10시 발표진행(saramdle 디스코드 소통방)
 + 학습인원: 총 7명
 
